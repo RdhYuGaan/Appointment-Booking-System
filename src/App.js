@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Home from "./pages/Home";
+import MyAppointments from "./pages/MyAppointments";
+import { AppBar, Toolbar, Button, Container } from "@mui/material";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <AppBar position="static">
+        <Toolbar>
+          <Button color="inherit" component={Link} to="/">Home</Button>
+          <Button color="inherit" component={Link} to="/appointments">My Appointments</Button>
+        </Toolbar>
+      </AppBar>
+      <Container sx={{ mt: 4 }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/appointments" element={<MyAppointments />} />
+        </Routes>
+      </Container>
+    </Router>
   );
-}
+};
 
 export default App;
