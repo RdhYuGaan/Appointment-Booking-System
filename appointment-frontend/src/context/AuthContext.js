@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import api from '../api/api'; // Your API utility
+import api from '../api/api'; 
 
 const AuthContext = createContext();
 
@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
         navigate('/appointments'); // Only redirect from login/register
       }
     }
-  }, [navigate, location.pathname]); // Depend on `location.pathname`
+  }, [navigate, location.pathname]); 
 
  
   const login = async (email, password) => {
